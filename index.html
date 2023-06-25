@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario de contacto</title>
 </head>
 <body>
     <header>
@@ -110,24 +110,24 @@
         <!--Email Us section-->
         <section>
             <h2 id="email_us">Email us</h2>
-            <form>
-                <label>Name*:</label>
-                <input type="text" placeholder="Name" required><br>
+            <form action="/"  method="POST" id="formUser">
+                <label for="name">Name*:</label>
+                <input type="text" name="name" placeholder="Name"  required><br>
 
-                <label>Email*:</label>
-                <input type="email" placeholder="Email" required><br>
+                <label for="email">Email*:</label>
+                <input type="email" name="email" placeholder="example@gmail.com" required><br>
 
-                <label>Phone:</label>
-                <input type="text" placeholder="Phone"><br>
+                <label for="phone">Phone:</label>
+                <input type="text" name="phone" placeholder="Phone"><br>
 
-                <label>Company name:</label>
-                <input type="text" placeholder="Name"><br>
+                <label for="company">Company name:</label>
+                <input type="text" name="company" placeholder="Name"><br>
 
-                <label>Subject*:</label>
-                <input type="text" placeholder="Name" required><br>
+                <label for="subject">Subject*:</label>
+                <input type="text" name="subject" placeholder="Name" required><br>
 
-                <label>Message*:</label>
-                <textarea placeholder="Message" required></textarea><br>
+                <label for="message">Message*:</label>
+                <textarea type="text"  name="message" placeholder="Message" required></textarea><br>
                 
                 <button type="submit">Send</button>
             </form>
@@ -136,5 +136,8 @@
     <footer>
         <p>© 2016 - <a href="https://www.salleurl.edu/es">La salle.</a> All Rights Reserved.</p>
     </footer>
+    <script type="module" src="index.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
