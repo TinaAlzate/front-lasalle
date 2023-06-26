@@ -8,40 +8,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTestForm = exports.postUserForm = void 0;
-// import sendMail from "../config/emailer";
+const mailer_1 = require("../config/mailer");
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const postUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req.body);
     try {
         const { name, email, phone, company, subject, message } = yield req.body;
-        // const transporter = nodemailer.createTransport({
-        //     host: "smtp.gmail.com",
-        //     port: 465,
-        //     secure: true,
-        //     auth: {
-        //         user: 'valzate618@gmail.com',
-        //         pass: 'holpukgrrruuevyg' // pass proporecionada por Google
-        //     }
-        // });
-        // let messageEmail = {
-        //     from: '"Fred Foo 👻" <valzate618@gmail.com>', // sender address
-        //     to: "jarestrepot@qvirtual.edu.co", // list of receivers
-        //     subject: "Hello ✔", // Subject line
-        //     text: "Hello world?", // plain text body
-        //     html: "<h2>Hola amor</h2>", // html body
-        // }
-        // transporter.sendMail(messageEmail)
-        //     .then(() =>{
-        //         return res.status(200).json({message: 'recived an email'});
-        //     })
-        //     .catch(()=>{
-        //         return res.status(500).json({message: 'Failed to send mail'});
-        //         console.log("Failed to send mail")
-        //     });
-        // sendMail();
+        // Ruta de template email (HTML)..
+        const filePath = path_1.default.join(__dirname, '..', 'views', 'sendEmail.html');
+        const emailTemplate = fs_1.default.readFileSync(filePath, 'utf8');
+        mailer_1.transporter.sendMail({
+            from: 'valzate618@gmail.com',
+            to: `${req.body.email}`,
+            subject: `${req.body.subject} 👻👻`,
+            text: 'Welcome, thank you for contacting us shortly we will contact you',
+            html: `${emailTemplate}`, // html body
+        }).then(() => {
+            console.log('send emails');
+        }).catch(err => {
+            console.log('Error in send emails');
+            throw new Error('Error form, data incomplete');
+        });
         return res.status(200).json({
-            msg: "Personal dates for form user",
+            msg: "Personal dates for user",
             data: {
                 name,
                 email,
@@ -51,7 +46,7 @@ const postUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 message,
             }
         });
-        throw new Error('Error form, data incomplete');
+        // throw new Error('Error form, data incomplete');
     }
     catch (error) {
         res.status(500).json({

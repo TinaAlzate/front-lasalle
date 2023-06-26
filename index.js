@@ -1,5 +1,6 @@
 
 const formUser = document.getElementById('formUser');
+
 const END_POIN_API_FORMUSER = 'http://localhost:3002/api/userform/form';
 
 
@@ -39,8 +40,6 @@ formUser.addEventListener('submit',(event)=>{
 
 
 const serviceApiUserForm = async (userJson)=>{
-
-
     try {
         await fetch(END_POIN_API_FORMUSER,{
             method: 'POST',
@@ -82,7 +81,8 @@ const serviceApiUserForm = async (userJson)=>{
         );
     } catch (error) {
         console.log('Upss a ocurrido un error en el envio del formulario');
-        return Swal.fire({
+        
+        ({
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',

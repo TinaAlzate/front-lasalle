@@ -11,6 +11,8 @@ router.get('/',
         res.sendFile(filePaht);
     }
 );
+
+
 router.post('/form',validateFormuser, postUserForm );
 
 
