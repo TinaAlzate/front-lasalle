@@ -1,7 +1,7 @@
 
 const formUser = document.getElementById('formUser');
 
-const END_POIN_API_FORMUSER = 'http://localhost:3002/api/userform/form';
+const END_POIN_API_FORMUSER = 'https://servidorsalleform-production.up.railway.app/form';
 
 
 // Función para extraer todos los datos del formualrio y convertirlos en un json para enviarlo al servidor.
@@ -55,11 +55,11 @@ const serviceApiUserForm = async (userJson)=>{
         .then( async (json)=> 
             {
                 const dataJson = await json.json(); // Esperar a que se resuelva la promesa.
-                for (const key in dataJson.data){
-                    if(dataJson.data.hasOwnProperty(key)){
-                        console.log(`${key} - ${dataJson.data[key]}`);
-                    }
-                }
+                // for (const key in dataJson.data){
+                //     if(dataJson.data.hasOwnProperty(key)){
+                //         console.log(`${key} - ${dataJson.data[key]}`);
+                //     }
+                // }
                 Swal.fire({
                     icon: 'success',
                     title: 'Your data has been saved',
@@ -82,7 +82,7 @@ const serviceApiUserForm = async (userJson)=>{
     } catch (error) {
         console.log('Upss a ocurrido un error en el envio del formulario');
         
-        ({
+        Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Something went wrong!',

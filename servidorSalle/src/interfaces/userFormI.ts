@@ -1,4 +1,4 @@
-export interface userFormI {
+export interface userFormI { // Data for form.
     name: string,
     email:string,
     phone?: string,

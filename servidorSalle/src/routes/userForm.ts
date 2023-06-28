@@ -12,7 +12,6 @@ router.get('/',
     }
 );
 
-
 router.post('/form',validateFormuser, postUserForm );
 
 
