@@ -2,7 +2,7 @@ import { validationResult } from 'express-validator/src/validation-result';
 import { Request, Response } from 'express';
 import { NextFunction } from 'express';
 
-
+// Validation de users.
 export const validateResult = (req: Request, res: Response, next: NextFunction) => {
     try {
         validationResult(req).throw();

@@ -10,7 +10,7 @@ const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.port = process.env.PORT || '3002';
+        this.port = process.env.PORT || '3003'; // PORT server.
         // Esta función debe de estar inicializada antes que el método de la route, transforma la req.body a un json
         this.midlewares();
         this.listen();
@@ -23,10 +23,11 @@ class Server {
     }
     routes() {
         // Configuración del cors ya que al correr en puertos diferentes, se crea un bloqueo de seguridad.
-        this.app.use((0, cors_1.default)({
-            origin: 'http://127.0.0.1:5500',
-            methods: ['GET', 'POST'],
-        }));
+        // this.app.use(cors({
+        //     origin: 'http://127.0.0.1:5500',
+        //     methods: ['GET', 'POST'],
+        // }));
+        this.app.use((0, cors_1.default)()); // Cualquier tipo de sitio.
         this.app.use('/api/userform', userForm_1.default);
     }
     // ! Indispensable para leer JSON (Method: POST, UPDATE, DELETE)

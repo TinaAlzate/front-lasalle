@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon build/src/index.js",
-    "tsc": "tsc --watch"
+    "tsc": "tsc --watch --outDir build/src",
+    "start": "node build/src/index.js"
   },
   "author": "@Javier && @Valentina",
   "license": "ISC",

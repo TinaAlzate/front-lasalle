@@ -1,4 +1,5 @@
 
+import { Request, Response } from "express";
 
 
 import express, { Application } from 'express';
@@ -11,7 +12,7 @@ export class Server {
 
     constructor(){
         this.app = express();
-        this.port = process.env.PORT || '3002';
+        this.port = process.env.PORT || '3003'; // PORT server.
         // Esta función debe de estar inicializada antes que el método de la route, transforma la req.body a un json
         this.midlewares();
         this.listen();
@@ -26,10 +27,11 @@ export class Server {
 
     routes(){
         // Configuración del cors ya que al correr en puertos diferentes, se crea un bloqueo de seguridad.
-        this.app.use(cors({
-            origin: 'http://127.0.0.1:5500',
-            methods: ['GET', 'POST'],
-        }));
+        // this.app.use(cors({
+        //     origin: 'http://127.0.0.1:5500',
+        //     methods: ['GET', 'POST'],
+        // }));
+        this.app.use(cors()); // Cualquier tipo de sitio.
         this.app.use('/api/userform', routerUserForm);
     }
 
