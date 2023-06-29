@@ -1,7 +1,7 @@
 
 const formUser = document.getElementById('formUser');
 
-const END_POIN_API_FORMUSER = 'https://servidorsalleform-production.up.railway.app/form';
+const END_POIN_API_FORMUSER = 'https://gff49cefa7bcd14-c25rtfxijdtk6tsb.adb.eu-madrid-1.oraclecloudapps.com/ords/xxsalle_/ejercicio1_contactus/submit';
 
 
 // Función para extraer todos los datos del formualrio y convertirlos en un json para enviarlo al servidor.
@@ -19,7 +19,7 @@ formUser.addEventListener('submit',(event)=>{
     /**
      * JSON.stringify, convierte un objeto de js a json para la transferencia de datos HTTP
      */
-    // console.log(JSON.stringify(dataFormComplet));
+    //console.log(JSON.stringify(dataFormComplet));
 
     Swal.fire({
         title: 'Are you sure?',
@@ -60,28 +60,34 @@ const serviceApiUserForm = async (userJson)=>{
                 //         console.log(`${key} - ${dataJson.data[key]}`);
                 //     }
                 // }
+                //Ramiro Teran consola de abajo para probar
+                //console.log('JSON de respuesta:');
+                //console.log(dataJson);
                 Swal.fire({
                     icon: 'success',
                     title: 'Your data has been saved',
                     showConfirmButton: false,
                     // timer: 150000,
                     html:   `<section class="informationUserForm">
-                                <p><Strong>Name:</Strong> ${ dataJson.data.name }</p>
-                                <p><Strong>Email:</Strong> ${ dataJson.data.email }</p>
-                                <p><Strong>Phone:</Strong> ${ dataJson.data.phone }</p>
-                                <p><Strong>Company:</Strong> ${ dataJson.data.company }</p>
-                                <p><Strong>Subject:</Strong> ${ dataJson.data.subject }</p>
-                                <p><Strong>Message:</Strong> ${ dataJson.data.message }</p>
+                                <p><Strong>Name:</Strong> ${ userJson.name }</p>
+                                <p><Strong>Email:</Strong> ${ userJson.email }</p>
+                                <p><Strong>Phone:</Strong> ${ userJson.phone }</p>
+                                <p><Strong>Company:</Strong> ${ userJson.company }</p>
+                                <p><Strong>Subject:</Strong> ${ userJson.subject }</p>
+                                <p><Strong>Message:</Strong> ${ userJson.message }</p>
                             </section>`,
                     showCloseButton: true,
                     showConfirmButton: true,
                 });
-                // console.log( 'data: ', JSON.stringify(dataJson.data), 'status: ', json.status);
+
+                //Ramiro Teran consola de abajo para probar
+                //console.log( 'data: ', JSON.stringify(dataJson.data), 'status: ', json.status);
             }
         );
     } catch (error) {
         console.log('Upss a ocurrido un error en el envio del formulario');
-        
+        //Ramiro Teran consola de abajo para probar
+        //console.log(error.message);
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
