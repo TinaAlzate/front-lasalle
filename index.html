@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de contacto</title>
+    <title>My Bussines Webpage</title>
 </head>
 <body>
     <header>
@@ -112,22 +112,22 @@
             <h2 id="email_us">Email us</h2>
             <form action="/"  method="POST" id="formUser">
                 <label for="name">Name*:</label>
-                <input type="text" name="name" placeholder="Ej. Jaun Perez"  required><br>
+                <input type="text" name="name" id="name" placeholder="Ej. Jaun Perez"  required><br>
 
                 <label for="email">Email*:</label>
-                <input type="email" name="email" placeholder="example@gmail.com" required><br>
+                <input type="email" name="email" id="email" placeholder="example@gmail.com" required><br>
 
                 <label for="phone">Phone:</label>
-                <input type="text" name="phone" placeholder="Ej. 123456789"><br>
+                <input type="text" name="phone" id="phone" placeholder="Ej. 123456789" minlength="9" maxlength="12"><br>
 
                 <label for="company">Company name:</label>
-                <input type="text" name="company" placeholder="Your company"><br>
+                <input type="text" name="company" id="company" placeholder="Your company"><br>
 
                 <label for="subject">Subject*:</label>
-                <input type="text" name="subject" placeholder="Subject" required><br>
+                <input type="text" name="subject" id="subject" placeholder="Subject" required><br>
 
                 <label for="message">Message*:</label>
-                <textarea type="text"  name="message" placeholder="Message" required></textarea><br>
+                <textarea name="message" id="message" minlength="10" required></textarea><br>
                 
                 <button type="submit">Send</button>
             </form>
@@ -136,10 +136,10 @@
     <footer>
         <p>© 2016 - <a href="https://www.salleurl.edu/es">La salle.</a> All Rights Reserved.</p>
     </footer>
-    <!-- Conexion al fichero js para el envio del formulario -->
+    <!-- Connection to the js file to send the form -->
     <script type="module" src="index.js">
     </script>
-    <!-- CDN de la libreria de modales -->
+    <!-- modals library CDN-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

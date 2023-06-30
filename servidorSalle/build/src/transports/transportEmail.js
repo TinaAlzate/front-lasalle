@@ -13,7 +13,7 @@ const transporEmailFunction = (req) => {
     const emailTemplate = fs_1.default.readFileSync(filePath, 'utf8');
     // User email
     mailer_1.transporter.sendMail({
-        from: 'valzate618@gmail.com',
+        from: 'bussineswebpage@gmail.com',
         to: `${req.body.email}`,
         subject: `${req.body.subject} 👻👻`,
         text: 'Welcome, thank you for contacting us shortly we will contact you..',
@@ -27,7 +27,7 @@ const transporEmailFunction = (req) => {
     // Admin email
     mailer_1.transporter.sendMail({
         from: `${req.body.email}`,
-        to: 'valzate618@gmail.com',
+        to: 'bussineswebpage@gmail.com',
         subject: `${req.body.subject} 👻👻`,
         text: 'Welcome, thank you for contacting us shortly we will contact you',
         html: `<!DOCTYPE html>
